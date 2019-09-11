@@ -18,6 +18,9 @@ import com.cc.servicedemo.MainActivity;
 import com.cc.servicedemo.R;
 import com.cc.servicedemo.notification.DownloadNotification;
 import com.cc.servicedemo.untils.T;
+import org.greenrobot.eventbus.EventBus;
+
+import java.security.PublicKey;
 
 /*
  *@Auther:陈浩
@@ -143,6 +146,11 @@ import com.cc.servicedemo.untils.T;
         mNotify.uploadUi("下载完成", "下载完成"+p, 100);
         stopSelf();
         AppUtils.installApp(Environment.getExternalStorageDirectory().getPath() + "/movie.apk");
+        //发送广播
+        Intent intent=new Intent();
+        intent.putExtra("count", p);
+        intent.setAction("com.cc.servicedemo.service.MyIntentService");
+        sendBroadcast(intent);
     }
 
     @Download.onTaskRunning
@@ -151,5 +159,11 @@ import com.cc.servicedemo.untils.T;
         int p = (int) (task.getCurrentProgress() * 100 / len);
         mNotify.upload(p);
         mNotify.uploadUi("正在下载", "下载进度"+p, p);
+        //发送广播
+        Intent intent=new Intent();
+        intent.putExtra("count", p);
+        intent.setAction("com.cc.servicedemo.service.MyIntentService");
+        sendBroadcast(intent);
     }
+
 }

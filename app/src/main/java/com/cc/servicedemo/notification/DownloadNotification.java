@@ -26,7 +26,6 @@ import com.cc.servicedemo.R;
         init();
     }
 
-
     private void init() {
         mManager = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
         mBuilder = new NotificationCompat.Builder(mContext);

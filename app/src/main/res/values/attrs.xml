@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LD_WaveView">
+        <attr name="wave_color" format="color"></attr>
+        <attr name="wave_circle" format="boolean"></attr>
+    </declare-styleable>
+</resources>
+

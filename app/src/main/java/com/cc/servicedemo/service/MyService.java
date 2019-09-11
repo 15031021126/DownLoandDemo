@@ -45,32 +45,39 @@ import com.cc.servicedemo.untils.T;
         Aria.download(this).unRegister();
     }
 
-    @Download.onNoSupportBreakPoint public void onNoSupportBreakPoint(DownloadTask task) {
+    @Download.onNoSupportBreakPoint
+    public void onNoSupportBreakPoint(DownloadTask task) {
         T.showShort(getApplicationContext(), "该下载链接不支持断点");
     }
 
-    @Download.onTaskStart public void onTaskStart(DownloadTask task) {
+    @Download.onTaskStart
+    public void onTaskStart(DownloadTask task) {
         T.showShort(getApplicationContext(), task.getDownloadEntity().getFileName() + "，开始下载");
     }
 
-    @Download.onTaskStop public void onTaskStop(DownloadTask task) {
+    @Download.onTaskStop
+    public void onTaskStop(DownloadTask task) {
         T.showShort(getApplicationContext(), task.getDownloadEntity().getFileName() + "，停止下载");
     }
 
-    @Download.onTaskCancel public void onTaskCancel(DownloadTask task) {
+    @Download.onTaskCancel
+    public void onTaskCancel(DownloadTask task) {
         T.showShort(getApplicationContext(), task.getDownloadEntity().getFileName() + "，取消下载");
     }
 
-    @Download.onTaskFail public void onTaskFail(DownloadTask task) {
+    @Download.onTaskFail
+    public void onTaskFail(DownloadTask task) {
         T.showShort(getApplicationContext(), task.getDownloadEntity().getFileName() + "，下载失败");
     }
 
-    @Download.onTaskComplete public void onTaskComplete(DownloadTask task) {
+    @Download.onTaskComplete
+    public void onTaskComplete(DownloadTask task) {
         T.showShort(getApplicationContext(), task.getDownloadEntity().getFileName() + "，下载完成");
         mNotify.upload(100);
     }
 
-    @Download.onTaskRunning public void onTaskRunning(DownloadTask task) {
+    @Download.onTaskRunning
+    public void onTaskRunning(DownloadTask task) {
         long len = task.getFileSize();
         int p = (int) (task.getCurrentProgress() * 100 / len);
         mNotify.upload(p);

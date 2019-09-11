@@ -13,6 +13,7 @@ import com.arialyy.aria.core.Aria;
     public void onCreate() {
         super.onCreate();
         Aria.init(this);
+       //RxTool.init(this);
 
     }
 }
