@@ -1,9 +1,12 @@
 package com.cc.servicedemo.notification;
 
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import androidx.core.app.NotificationCompat;
+import com.cc.servicedemo.MainActivity;
 import com.cc.servicedemo.R;
 
 /*
@@ -34,6 +37,10 @@ import com.cc.servicedemo.R;
         mManager.notify(mNotifiyId, mBuilder.build());
     }
 
+    /**
+     * 更新进度
+     * @param progress
+     */
     public void upload(int progress) {
         if (mBuilder != null) {
             mBuilder.setProgress(100, progress, false);
@@ -41,6 +48,13 @@ import com.cc.servicedemo.R;
         }
     }
 
+    /**
+     * 更新uI
+     * @param contentTitle
+     * @param ContentText
+     * @param SmallIcon
+     * @param progress
+     */
     public void uploadUi(String contentTitle, String ContentText, int SmallIcon, int progress) {
         mBuilder.setContentTitle(contentTitle)
                 .setContentText(ContentText)
@@ -60,7 +74,6 @@ import com.cc.servicedemo.R;
     public void uploadUi(String contentTitle, String ContentText) {
         mBuilder.setContentTitle(contentTitle)
                 .setContentText(ContentText)
-               //.setProgress(100, progress, false)
                 .setSmallIcon(R.mipmap.ic_launcher_round);
         mManager.notify(mNotifiyId, mBuilder.build());
     }

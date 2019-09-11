@@ -13,6 +13,7 @@ import androidx.annotation.Nullable;
 import com.arialyy.annotations.Download;
 import com.arialyy.aria.core.Aria;
 import com.arialyy.aria.core.download.DownloadTask;
+import com.blankj.utilcode.util.AppUtils;
 import com.cc.servicedemo.MainActivity;
 import com.cc.servicedemo.R;
 import com.cc.servicedemo.notification.DownloadNotification;
@@ -118,7 +119,7 @@ import com.cc.servicedemo.untils.T;
         if (mNotify != null) {
             long len = task.getFileSize();
             int p = (int) (task.getCurrentProgress() * 100 / len);
-            mNotify.uploadUi("暂停", "下载进度"+p, p);
+            mNotify.uploadUi("已暂停", "下载进度"+p, p);
         }
     }
 
@@ -140,6 +141,8 @@ import com.cc.servicedemo.untils.T;
         long len = task.getFileSize();
         int p = (int) (task.getCurrentProgress() * 100 / len);
         mNotify.uploadUi("下载完成", "下载完成"+p, 100);
+        stopSelf();
+        AppUtils.installApp(Environment.getExternalStorageDirectory().getPath() + "/movie.apk");
     }
 
     @Download.onTaskRunning

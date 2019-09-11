@@ -41,5 +41,7 @@ dependencies {
     //butterknife
     //引入ButterKnife
     implementation "com.jakewharton:butterknife:10.0.0"
+    implementation 'com.blankj:utilcode:1.24.7'
+
     annotationProcessor "com.jakewharton:butterknife-compiler:10.0.0"
 }
